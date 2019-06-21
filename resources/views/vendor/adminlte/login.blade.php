@@ -5,36 +5,11 @@
     <link rel="stylesheet" href="{{ asset('vendor/adminlte/css/auth.css') }}">
     @yield('css')
     <style>
-            .border{
-                border-color: black;
-            }
-               .imagencentro{
-
-                margin-left: auto;
-                margin-right: auto;
-                display: block;
-                max-width:100%;
-                max-height:100%;
-                margin-top: 50px;
-               }
-               .center{
-                   text-align: center;
-               }
-
-               .total{
-                font-weight: bold;
-
-            }
-
-            .titulo{
-                margin-top: 20px;
-                text-align: center;
-                margin-bottom: -60px;
-            }
+            
 
             body {
 
-                background-color: #a1b3d1;
+                background-color: #D2D6DE;
             }
 
             </style>
@@ -43,21 +18,11 @@
 
 
 @section('body')
-    <div class="row">
-        <div class="col-md-4">
-                <img src="{{asset('img/CASTELLANO-Y-GURANI-min-de-la-vivienda.png')}}" class="imagencentro" width="230" height="70">
-        </div>
-        <div class="col-md-4">
-                <img src="{{asset('img/gobierno-nacional.png')}}" class="imagencentro"  width="250" height="60">
-        </div>
-        <div class="col-md-4">
-                <img src="{{asset('img/slogan.png')}}" class="imagencentro" width="220" height="70">
-        </div>
-    </div>
-    <div class="row titulo">
-        <h2><strong> {!! config('adminlte.logo', '<b>Obras</b>') !!}</strong></h2>
-    </div>
+    
     <div class="login-box">
+            <div class="login-logo">
+                    <a href="{{ url(config('adminlte.dashboard_url', 'home')) }}">{!! config('adminlte.logo', '<b>Admin</b>LTE') !!}</a>
+                </div>
         <!-- /.login-logo -->
         <div class="login-box-body">
             <p class="login-box-msg">{{ trans('adminlte::adminlte.login_message') }}</p>
