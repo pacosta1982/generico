@@ -108,29 +108,27 @@ return [
     */
 
     'menu' => [
-        'MAIN NAVIGATION',
+        'GESTIÓN PROYECTO',
         [
-            'text' => 'Blog',
-            'url'  => 'admin/blog',
-            'can'  => 'manage-blog',
+            'text' => 'Tablero',
+            'url'  => '/home',
+            'icon' => 'align-left',
         ],
         [
-            'text'        => 'Pages',
-            'url'         => 'admin/pages',
-            'icon'        => 'file',
-            'label'       => 4,
-            'label_color' => 'success',
+            'text'        => 'Proyectos',
+            'url'         => 'projects',
+            'icon'        => 'home',
         ],
-        'ACCOUNT SETTINGS',
+        'ADMINISTRACIÓN PROYECTOS',
         [
-            'text' => 'Profile',
-            'url'  => 'admin/settings',
-            'icon' => 'user',
+            'text' => 'Calendario',
+            'url'  => 'tasks',
+            'icon' => 'calendar',
         ],
         [
-            'text' => 'Change Password',
-            'url'  => 'admin/settings',
-            'icon' => 'lock',
+            'text' => 'Rubros Proyectos',
+            'url'  => 'proyrubro',
+            'icon' => 'address-book',
         ],
         [
             'text'    => 'Multilevel',
