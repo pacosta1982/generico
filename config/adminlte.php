@@ -126,7 +126,7 @@ return [
             'icon' => 'calendar',
         ],
         [
-            'text' => 'Rubros Proyectos',
+            'text' => 'Gestión Proyectos',
             'url'  => 'proyrubro',
             'icon' => 'address-book',
         ],

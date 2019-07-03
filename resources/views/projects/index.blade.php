@@ -86,7 +86,21 @@
         </td>
         </tr>
         @endforeach
-      </tbody></table>
+      </tbody>
+      <tfoot>
+        <tr>
+            <th>Proyecto</th>
+            <th>Empresa/Sat</th>
+            <th style="text-align:center;">Cantidad de Viviendas</th>
+            <th style="text-align:center;">Terreno</th>
+            <th>Distrito</th>
+            <th>Departamento</th>
+            <th style="text-align:center;">Estado</th>
+            <th>Avance</th>
+            <th>Acciones</th>
+        </tr>
+    </tfoot>
+</table>
     </div>
     <!-- /.card-body -->
   </div>

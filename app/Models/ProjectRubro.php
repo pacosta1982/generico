@@ -15,11 +15,11 @@ class ProjectRubro extends Model
     |--------------------------------------------------------------------------
     */
 
-    protected $table = 'proyecto_rubro';
+    protected $table = 'project_rubro';
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     // protected $guarded = ['id'];
-    protected $fillable = ['project_id','item_id','unidad_id','quantity','unit_price'];
+    protected $fillable = ['project_id','rubro_id','unidad_id','quantity','unit_price'];
     // protected $hidden = [];
     // protected $dates = [];
 
@@ -36,17 +36,17 @@ class ProjectRubro extends Model
     */
 
     public function state() {
-        return $this->hasOne('App\Models\Item','id','item_id');
+        return $this->hasOne('App\Models\Rubros','id','rubro_id');
     }
 
     public function unidad() {
-        return $this->hasOne('App\Models\UnidadMedida','id','unidad_id');
+        return $this->hasOne('App\Models\Units','id','unidad_id');
     }
 
     
 
     public function project() {
-        return $this->hasOne('App\Project','id','project_id');
+        return $this->hasOne('App\Models\Project','id','project_id');
     }
     
 

@@ -114,7 +114,9 @@
 
             <!-- Main content -->
             <section class="content">
-
+                    
+                @include('alert.flash-message')
+                
                 @yield('content')
 
             </section>

@@ -14,58 +14,9 @@
     <div class="col-md-3">
         <div class="box box-primary">
             <div class="box-header with-border">
-                <h3 class="box-title">Agendar Visita</h3>
+                <h3 class="box-title">Filtrar Visitas</h3>
             </div>
-            
-                <form action="{{ route('tasks.store') }}" method="post">
-                        {{ csrf_field() }}
-                        <input type="hidden" name="project_id" value="">
-                        <div class="box-body">
-                            <div class="form-group">
-                                <label for="name">Visita:</label>
-                                <input type="text" name="name" class="form-control"  placeholder="Ingrese Visita">
-                            </div>
-                            <div class="form-group">
-                                <label for="description">Descripción:</label>
-                                <input type="textarea" class="form-control" name="description" placeholder="Ingrese Descripción (Opcional)">
-                            </div>
-                            <div class="form-group">
-                                <label>Inspector</label>
-                                <select class="form-control required" name="user_id" id="user_id">
-                                    <option value="" >Seleccione una opcion</option>
-                                    @foreach($tecnico as $us)
-        
-                                    <option value="{{$us->id}}"
-                                    >{{$us->name}} </option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="task_date">Fecha:</label>
-                                <div class="input-group">
-                                    <div class="input-group-addon">
-                                        <i class="fa fa-calendar"></i>
-                                    </div>
-                                    <input type="text" name="task_date" class="form-control date"  placeholder="Ingrese Fecha Visita">
-                                </div>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="task_time">Hora:</label>
-                                <div class="input-group">
-                                    <div class="input-group-addon">
-                                        <i class="fa fa-clock-o"></i>
-                                    </div>
-                                    <input type="text" name="task_time" class="form-control timepicker"  placeholder="Ingrese Hora Visita">
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /.box-body -->
-            
-                        <div class="box-footer">
-                            <button type="submit"  class="btn btn-primary">Enviar</button>
-                        </div>
-                </form>            
+                      
         </div>
 
     </div>

@@ -17,8 +17,12 @@ Route::get('/', function () {
 
 Route::resource('projects', 'ProjectController');
 
-//CAlendario y Agendamiento
+//Calendario y Agendamiento
 Route::resource('tasks', 'TasksController');
+
+//Rubros
+Route::resource('proyrubro', 'PlanRubroProyController');
+Route::get('proyrubro/ajax/{state_id?}/cities', 'PlanRubroProyController@rubros'); 
 
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login');
