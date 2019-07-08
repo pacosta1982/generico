@@ -76,11 +76,7 @@
             <div class="dropdown">
                 <a href="#/" data-toggle="dropdown"     ><i class="fa fa-fw fa-list-ul"></i></a>
                 <ul class="dropdown-menu dropdown-menu-right">
-                    <li><a href="{!! action('ProjectController@show', ['id'=>$project->id]) !!}">Ver</a></li>
-                    <li><a href="{!! action('ProjectController@edit', ['id'=>$project->id]) !!}">Editar</a></li>
-                   
-                    <li><a href="">Propiedades</a></li>
-                    
+                    <li><a href="{!! action('ProjectController@show', ['id'=>$project->SEOBId]) !!}">Ver</a></li>
                 </ul>
             </div>
         </td>
