@@ -13,14 +13,13 @@
         "backpack/crud": "^3.6",
         "backpack/permissionmanager": "^4.0",
         "barryvdh/laravel-elfinder": "^0.4.2",
-        "cornford/googlmapper": "2.*",
         "fideloper/proxy": "^4.0",
         "jeroennoten/laravel-adminlte": "^1.25",
         "laravel/framework": "5.8.*",
+        "cornford/googlmapper": "2.*",
         "laravel/passport": "^7.2",
         "laravel/tinker": "^1.0",
-        "laraveles/spanish": "^1.2",
-        "realrashid/sweet-alert": "^2.0"
+        "laraveles/spanish": "^1.2"
     },
     "require-dev": {
         "backpack/generators": "^1.2",

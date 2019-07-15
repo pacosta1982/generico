@@ -12,8 +12,6 @@ use App\Models\Item;
 use App\Models\Rubros;
 use App\Models\ProjectRubro;
 
-use Alert;
-
 use App\Http\Requests\StoreRubroProy;
 
 class PlanRubroProyController extends Controller
@@ -57,9 +55,7 @@ class PlanRubroProyController extends Controller
 
         //$this->validate;
         ProjectRubro::create($request->all());
-        Alert::message('Robots are working!');
-        alert()->basic('Basic Message', 'Mandatory Title');
-        return redirect('proyrubro/'.$request->input("project_id"));//->with('success', 'Se ha agregado un Nuevo Rubro!');
+        return redirect('proyrubro/'.$request->input("project_id"))->with('success', 'Se ha agregado un Nuevo Rubro!');
 
     }
 

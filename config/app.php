@@ -176,7 +176,6 @@ return [
         App\Providers\RouteServiceProvider::class,
         Laravel\Passport\PassportServiceProvider::class,
         Cornford\Googlmapper\MapperServiceProvider::class,
-        RealRashid\SweetAlert\SweetAlertServiceProvider::class,
 
 
     ],
@@ -231,7 +230,6 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Adldap' => Adldap\Laravel\Facades\Adldap::class,
         'Mapper' => Cornford\Googlmapper\Facades\MapperFacade::class,
-        'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
 
     ],
 
