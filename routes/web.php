@@ -33,3 +33,12 @@ Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('projects/{id}/informes', 'ReportController@index');
+Route::get('projects/{id}/informes/create', 'ReportController@create');
+Route::post('savereport', 'ReportController@store');
+Route::get('projects/{id}/informes/{idvisita}', 'ReportController@show');
+
+//Viviendas
+Route::get('projects/{id}/informes/{idvisita}/{idvivienda}', 'ViviendaController@index');
+Route::post('save_vivienda', 'ViviendaController@store')->name('save_vivienda');

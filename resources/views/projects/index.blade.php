@@ -9,7 +9,6 @@
 @section('content')
 @php
 
-
     $array = [
     "A" =>  "Compra de Terreno",
     "P" =>  "Lote Propio",
@@ -23,7 +22,6 @@
     "F" => "Falta Información",
     "" => "Sin Definir",
 ];
-
 
 @endphp
 <div class="box box-primary">
@@ -98,6 +96,6 @@
     </tfoot>
 </table>
     </div>
-    <!-- /.card-body -->
+
   </div>
 @stop

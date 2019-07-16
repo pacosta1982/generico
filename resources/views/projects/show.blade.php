@@ -62,17 +62,17 @@
                   <ul class="nav nav-pills">
                     <li class="nav-item active"><a class="nav-link" href="#tab_1" data-toggle="tab" aria-expanded="true">Informes de Supervición</a></li>
                     <li class="nav-item"><a class="nav-link" href="#tab_2" data-toggle="tab" aria-expanded="false">Documentos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#activity" data-toggle="tab">Observaciones</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#timeline" data-toggle="tab">Observaciones Fonavis</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#tab_3" data-toggle="tab">Observaciones</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#tab_4" data-toggle="tab">Observaciones Fonavis</a></li>
                   </ul>
                 </div><!-- /.card-header -->
                 <div class="card-body">
                   <div class="tab-content">
-                    <div class="active tab-pane" id="activity">
-                      
+                    <div class="active tab-pane" id="tab_1">
+                      @include('projects.tabs.informes')
                     </div>
                     <!-- /.tab-pane -->
-                    <div class="tab-pane" id="timeline">
+                    <div class="tab-pane" id="tab_2">
                       @if($project->SEOBPtoNro)
                         
                       @endif
@@ -80,7 +80,11 @@
                     </div>
                     <!-- /.tab-pane -->
         
-                    <div class="tab-pane" id="settings">
+                    <div class="tab-pane" id="tab_3">
+                      
+                    </div>
+
+                    <div class="tab-pane" id="tab_4">
                       
                     </div>
                     <!-- /.tab-pane -->
