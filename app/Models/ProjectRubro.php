@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Backpack\CRUD\CrudTrait;
+use App\Models\InformeEvaluacion;
 
 class ProjectRubro extends Model
 {
@@ -28,6 +29,20 @@ class ProjectRubro extends Model
     | FUNCTIONS
     |--------------------------------------------------------------------------
     */
+
+    public static function getValue($key,$informe,$vivienda){
+
+                $value = InformeEvaluacion::where('rubro_id',$key)
+                ->where('informe_id',$informe)
+                ->where('vivienda_id',$vivienda)
+                ->first();
+                if ($value) {
+                    return $value->value;
+                } else {
+                    return '0-2';
+                }
+                
+    } 
 
     /*
     |--------------------------------------------------------------------------

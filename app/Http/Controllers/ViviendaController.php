@@ -14,7 +14,7 @@ class ViviendaController extends Controller
 
     public function index($id,$idinforme,$idvivienda)
     {
-        
+
         $project = Project::find($id);
         $title="Lista de Informes de Obra del Proyecto ".$project->name;
         $images = ImageGallery::get();
@@ -38,7 +38,9 @@ class ViviendaController extends Controller
     public function store(Request $request)
     {
 
-        $input = $request->except(['_token','informe_id','vivienda_id','user_id']);
+        $input = $request->except(['_token','informe_id','vivienda_id','user_id','project_id']);
+
+        //return $request->all();
 
         foreach ($input as $key => $value) {
             $inf = InformeEvaluacion::where('rubro_id',$key)
@@ -55,15 +57,21 @@ class ViviendaController extends Controller
                 $evaluacion->value = $value;
                 $evaluacion->save();
             } else {
-                echo 'Hule';
+                //echo 'Hule';
                 InformeEvaluacion::where('rubro_id',$key)
                 ->where('informe_id',$request->informe_id)
                 ->where('vivienda_id',$request->vivienda_id)
                 ->update(['value'=>$value]);
             }
-            
-            echo $key.' = '.$value.'<br>';
+
+
+
+            //echo $key.' = '.$value.'<br>';
         }
+
+        return redirect()->action(
+                'ViviendaController@index', ['id' => $request->project_id,'idinforme' => $request->informe_id,'idvivienda' => $request->vivienda_id]
+            );
 
     }
 

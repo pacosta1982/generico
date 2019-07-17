@@ -18,16 +18,17 @@
         <input type="text" name="user_id" value="{{ Auth::user()->id }}" hidden>
         <input type="text" name="informe_id" value="{{ $idinforme }}" hidden>
         <input type="text" name="vivienda_id" value="{{ $idvivienda }}" hidden>
+        <input type="text" name="project_id" value="{{ $project->SEOBId }}" hidden>
         @foreach($rubros as $ru)
             @if ($ru->category_id !== $aux)
-            
+
                 <tr class="header">
                     <td class="bg-light-blue-active color-palette">{!! $ru->category_id?$ru->state->categoria->name:"" !!}</td>
                     <td class="text-center bg-light-blue-active color-palette"></td>
                     <td class="text-center bg-light-blue-active color-palette"></td>
                     <td class="text-center bg-light-blue-active color-palette"></td>
                     <td class="text-center bg-light-blue-active color-palette"></td>
-                    <td class="text-center bg-light-blue-active color-palette"></td> 
+                    <td class="text-center bg-light-blue-active color-palette"></td>
                 </tr>
                 @php
                     $aux=$ru->category_id;
@@ -40,25 +41,22 @@
                 <td class="text-center">{!! number_format($ru->unit_price,0,'.','.') !!}</td>
                 <td class="text-center">{!! number_format(($ru->unit_price * $ru->quantity),0,'.','.') !!}</td>
                 <td class="text-center">
-                        <select id="wgtmsr" class="js-example-basic-single" name="{!! $ru->rubro_id !!}">
-                                <option value="0">0% </option>
-                                <option value="10">10% </option>
-                                <option value="20">20% </option>
-                                <option value="30">30% </option>
-                                <option value="40">40% </option>
-                                <option value="50">50% </option>
-                                <option value="60">60% </option>
-                                <option value="70">70% </option>
-                                <option value="80">80% </option>
-                                <option value="90">90% </option>
-                                <option value="100">100% </option>
-                              </select></td>
-              </tr>          
+                    <select id="wgtmsr" class="js-example-basic-single" name="{!! $ru->rubro_id !!}">
+                        @for ($i = 0; $i <= 100; $i+=10)
+                        <option value="{{$i}}"
+                        @if (App\Models\ProjectRubro::getValue($ru->rubro_id,$idinforme,$idvivienda) == $i)
+                            selected="selected"
+                        @endif
+                        >{{$i}}% </option>
+                        @endfor
+                    </select>
+                </td>
+              </tr>
      @endforeach
-     
+
     </tbody>
     <tfoot>
-         
+
     </tfoot>
 </table>
 <div class="form-group row">
@@ -66,19 +64,19 @@
         <button type="submit" class="btn btn-success pull-right">Guardar Datos</button>
     </div>
 </div>
-</form> 
+</form>
 @section('css')
 <style>
 #wgtmsr{
- width:100px;   
+ width:100px;
 }
 
 #wgtmsr option{
- width:80px;   
+ width:80px;
 }
 
 </style>
-@endsection   
+@endsection
 
 @section('js')
 
@@ -89,5 +87,5 @@ $(document).ready(function() {
     });
 });
 </script>
-    
+
 @endsection
