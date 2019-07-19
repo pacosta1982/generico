@@ -3,7 +3,7 @@
 @section('title', 'Seguimiento')
 
 @section('content_header')
-    
+
 @stop
 
 @section('content')
@@ -73,19 +73,16 @@
                     </div>
                     <!-- /.tab-pane -->
                     <div class="tab-pane" id="tab_2">
-                      @if($project->SEOBPtoNro)
-                        
-                      @endif
-        
+                      @include('projects.tabs.files')
                     </div>
                     <!-- /.tab-pane -->
-        
+
                     <div class="tab-pane" id="tab_3">
-                      
+
                     </div>
 
                     <div class="tab-pane" id="tab_4">
-                      
+
                     </div>
                     <!-- /.tab-pane -->
                   </div>
@@ -96,16 +93,16 @@
             </div>
       </div>
         <!-- /.row -->
-  
+
         <!-- Table row -->
-        
+
         <!-- /.row -->
-  
-        
+
+
         <!-- /.row -->
-  
+
         <!-- this row will not appear when printing -->
-        
+
       </section>
 
 @stop

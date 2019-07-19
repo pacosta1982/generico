@@ -8,6 +8,7 @@ use App\Models\Informe;
 use App\Models\ImageGallery;
 use App\Models\ProjectRubro;
 use App\Models\InformeEvaluacion;
+use App\Models\Viviendas;
 
 class ViviendaController extends Controller
 {
@@ -16,17 +17,18 @@ class ViviendaController extends Controller
     {
 
         $project = Project::find($id);
-        $title="Lista de Informes de Obra del Proyecto ".$project->name;
-        $images = ImageGallery::get();
+        $casa = Viviendas::find($idvivienda);
+        $title="Informe N° ".$idinforme." del Proyecto ".'<strong>'.$project->SEOBProy.'</strong>'.' - '.'Vivienda '.$casa->name;
+        $images = ImageGallery::where('informe_id',$idinforme)
+                                ->where('vivienda_id',$idvivienda)
+                                ->get();
         $informe = Informe::where('project_id', $id)->get();
         $rubros = ProjectRubro::join('rubros', 'project_rubro.rubro_id', '=', 'rubros.id')
         ->where('project_id', $id)
         ->orderby('category_id')
         ->get();
 
-        //var_dump($rubros);
-
-        return view('projects.tabs.informes.vivienda.index',compact('project','title','informe','images','rubros','idinforme','idvivienda'));
+        return view('projects.tabs.informes.vivienda.index',compact('project','title','informe','images','rubros','idinforme','idvivienda','casa'));
     }
 
     public function create()
@@ -71,7 +73,7 @@ class ViviendaController extends Controller
 
         return redirect()->action(
                 'ViviendaController@index', ['id' => $request->project_id,'idinforme' => $request->informe_id,'idvivienda' => $request->vivienda_id]
-            );
+            )->with('success', 'Se ha actualizado el Informe!');
 
     }
 

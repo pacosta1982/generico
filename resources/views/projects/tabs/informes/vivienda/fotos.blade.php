@@ -1,16 +1,15 @@
+
 <form action="{{ url('image-gallery') }}" method="POST" enctype="multipart/form-data">
     {!! csrf_field() !!}
+    <input type="text" name="informe_id" value="{{ $idinforme }}" hidden>
+    <input type="text" name="vivienda_id" value="{{ $idvivienda }}" hidden>
+
     <div class="row">
+
         <div class="col-md-6">
             <div class="form-group">
-                <label for="exampleInputEmail1">Nombre Archivo</label>
-                <input type="text" name="title" class="form-control" placeholder="Titulo">
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="form-group">
-                <label for="exampleInputEmail1">Imagen</label>
-                <input type="file" name="image" class="form-control">
+                <label>Adjuntar Images</label>
+                <input type="file" name="image">
             </div>
         </div>
     </div>
@@ -18,21 +17,21 @@
             <div class="col-md-12">
                     <div class="form-group">
                             <label for="exampleInputEmail1"></label>
-                        <button type="submit" class="btn btn-success pull-right">Subir</button>
+                        <button type="submit" class="btn btn-primary">Subir</button>
                     </div>
             </div>
     </div>
 
 
 </form>
-<label for="">Imagenes de la Vivienda X</label> 
+<label for="">Imagenes de la Vivienda {{ $casa->name }}</label>
 <div class="row">
         <div class='list-group gallery'>
                 @if($images->count())
                     @foreach($images as $image)
                     <div class='col-sm-4 col-xs-6 col-md-3 col-lg-3'>
-                        <a class="thumbnail fancybox" rel="ligthbox" href="/images/{{ $image->image }}">
-                            <img class="img-responsive" alt="" src="/images/{{ $image->image }}" />
+                        <a class="thumbnail fancybox" rel="ligthbox" href="/images/{{ $idinforme }}/{{ $idvivienda }}/{{ $image->image }}">
+                            <img class="img-responsive" alt="" src="/images/{{ $idinforme }}/{{ $idvivienda }}/{{ $image->image }}" />
                             <div class='text-center'>
                                 <small class='text-muted'>{{ $image->title }}</small>
                             </div> <!-- text-center / end -->
@@ -71,7 +70,7 @@
         padding: 15px;
     }
 </style>
-    
+
 @endsection
 
 @section('js')
@@ -84,5 +83,5 @@
         });
     });
 </script>
-    
+
 @endsection

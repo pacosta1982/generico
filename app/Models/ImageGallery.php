@@ -10,7 +10,5 @@ use Illuminate\Database\Eloquent\Model;
 class ImageGallery extends Model
 {
     protected $table = 'image_gallery';
-
-
-    protected $fillable = ['title','image','visita_id','vivienda_id'];
+    protected $fillable = ['title','image','informe_id','vivienda_id'];
 }

@@ -16,8 +16,10 @@ class CreateImageGalleryTable extends Migration
         Schema::create('image_gallery', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title');
-            $table->string('visita_id');
-            $table->string('vivienda_id');
+            $table->integer('informe_id')->unsigned();
+            $table->foreign('informe_id')->references('id')->on('informe_visitas')->onDelete('cascade');
+            $table->integer('vivienda_id')->unsigned();
+            $table->foreign('vivienda_id')->references('id')->on('viviendas')->onDelete('cascade');
             $table->string('image');
             $table->timestamps();
         });

@@ -22,7 +22,7 @@ Route::resource('tasks', 'TasksController');
 
 //Rubros
 Route::resource('proyrubro', 'PlanRubroProyController');
-Route::get('proyrubro/ajax/{state_id?}/cities', 'PlanRubroProyController@rubros'); 
+Route::get('proyrubro/ajax/{state_id?}/cities', 'PlanRubroProyController@rubros');
 
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login');
@@ -42,3 +42,8 @@ Route::get('projects/{id}/informes/{idvisita}', 'ReportController@show');
 //Viviendas
 Route::get('projects/{id}/informes/{idvisita}/{idvivienda}', 'ViviendaController@index');
 Route::post('save_vivienda', 'ViviendaController@store')->name('save_vivienda');
+
+//Fotos
+Route::get('image-gallery', 'ImageGalleryController@index');
+Route::post('image-gallery', 'ImageGalleryController@upload');
+Route::delete('image-gallery/{id}', 'ImageGalleryController@destroy');

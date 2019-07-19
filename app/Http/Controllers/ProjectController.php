@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Project;
 use App\Models\Informe;
+use App\Models\File;
 use Mapper;
 
 class ProjectController extends Controller
@@ -52,13 +53,14 @@ class ProjectController extends Controller
     {
         $project = Project::find($id);
         $informe = Informe::where('project_id', $id)->get();
+        $files = File::where('project_id', $id)->get();
         try {
             $latlong= $this->ToLL((int)$project->SEOBUtmY,(int)$project->SEOBUtmX,preg_replace("/[^0-9]/", '', $project->SEOBUtm1));
             $map = Mapper::map($latlong['lat'], $latlong['lon']);
         } catch (\Throwable $th) {
             $map = Mapper::map(0, 0);
         }
-        return view('projects.show',compact('project','map','informe'));
+        return view('projects.show',compact('project','map','informe','files'));
     }
 
     /**
