@@ -5,18 +5,18 @@
     <thead>
         <tr>
         <th>Informe</th>
-        <th>Fecha</th> 
+        <th>Fecha</th>
         <th class="dt-center">Acciones</th>
         </tr>
         </thead>
     <tbody>
-        @foreach($informe as $inf)  
+        @foreach($informe as $inf)
       <tr>
         <td>Informe de Obra N° {!! $inf->num_visita !!}</td>
-        
+
         <td>{!! $inf->fecha_visita->format('d/m/Y') !!}</td>
         <td class="dt-center">
-            <a href="{!! action('ReportController@show', ['id'=>$inf->project_id,'idvisita'=>$inf->id]) !!}" class="announce"> 
+            <a href="{!! action('ReportController@show', ['id'=>$inf->project_id,'idvisita'=>$inf->id]) !!}" class="announce">
                 <button class="btn btn-primary" type="button"> Ver</button>
             </a>
         </td>
@@ -26,8 +26,8 @@
     <tfoot>
         <tr>
         <th>Informe</th>
-        
-        <th>Fecha</th> 
+
+        <th>Fecha</th>
         <th class="dt-center">Acciones</th>
         </tr>
     </tfoot>
@@ -78,7 +78,7 @@
 @stop
 
 @section('js')
-    
+
     <script src="{{asset('fullcalendar/lib/jquery-ui.custom.min.js')}}"></script>
     <script src="{{asset('fullcalendar/lib/moment.min.js')}}"></script>
     <script src="{{asset('fullcalendar/fullcalendar.js')}}"></script>
@@ -88,18 +88,18 @@
     <script src="{{asset('js/locale-all.js')}}" charset="UTF-8"></script>
     <script src="{{asset('bootstrap-timepicker/js/bootstrap-timepicker.js')}}"></script>
 
-   
+
 
 
 <script src="{{asset('js/bootstrap-datepicker.es.min.js')}}" charset="UTF-8"></script>
 <script type="text/javascript">
 
-    $('.date').datepicker({  
+    $('.date').datepicker({
        format: 'yyyy-mm-dd',
        autoclose: 'true',
        languaje: 'es'
      });
-     
-</script> 
+
+</script>
 
 @stop

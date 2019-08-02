@@ -34,23 +34,21 @@
       <table class="table table-striped">
         <tbody>
         <tr>
-          
+
           <th>Proyecto</th>
           <th>Empresa/Sat</th>
           <th style="text-align:center;">Cantidad de Viviendas</th>
           <th style="text-align:center;">Terreno</th>
           <th>Distrito</th>
           <th>Departamento</th>
-          <th style="text-align:center;">Estado</th>
-          <th>Avance</th>
           <th>Acciones</th>
         </tr>
         @foreach($projects as $project)
         <tr>
-        
+
         <td>{{utf8_encode($project->SEOBProy)}}</td>
         <td>{{utf8_encode($project->SEOBEmpr)}}</td>
-        
+
         <td style="text-align:center;">{{$project->SEOBViv}}</td>
         <td style="text-align:center;">{!! $array[rtrim($project->SEOBTerr)]!!}</td>
         <td>{!! $project->CiuId?$project->distrito->CiuNom:"" !!}</td>
@@ -89,8 +87,6 @@
             <th style="text-align:center;">Terreno</th>
             <th>Distrito</th>
             <th>Departamento</th>
-            <th style="text-align:center;">Estado</th>
-            <th>Avance</th>
             <th>Acciones</th>
         </tr>
     </tfoot>
